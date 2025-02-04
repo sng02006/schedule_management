@@ -34,12 +34,12 @@ public class ScheduleController {
         return scheduleService.findAllSchedules();
     }
 
-    @GetMapping("/writer/{writer}")
+    @GetMapping("/findWriter/{writer}")
     public List<ScheduleResponseDto> findScheduleByWriter(@PathVariable String writer) {
         return scheduleService.findScheduleByWriter(writer);
     }
 
-    @GetMapping("/date/{date}")
+    @GetMapping("/findDate/{date}")
     public List<ScheduleResponseDto> findScheduleByModifyDate(@PathVariable String date) {
         LocalDate modifyDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         return scheduleService.findScheduleByModifyDate(LocalDateTime.of(modifyDate, LocalTime.MIN));
